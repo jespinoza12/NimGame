@@ -9,27 +9,36 @@
     <script defer src=""></script>
 </head>
 <body>
-    <h1 class="row d-flex align-items-center justify-content-center">Welcome To Nim</h1>
-    <div class="container">
+    <h1 class="row d-flex align-items-center justify-content-center m-5">Welcome To Nim</h1>
+    
+    <div class="container d-flex align-items-center justify-content-center">
         <div class="row d-flex align-items-center justify-content-center">
-            <div class="col">
-                <h3>Enter Name</h3>
-                <div class="input-group mb-3">
+            <div class="col mx-4">
+                <h3 class="my-4">Enter Name</h3>
+                <div class="input-group mb-5">
                     <input type="text" class="form-control" placeholder="Enter Name" aria-label="Recipient's username" aria-describedby="button-addon2">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
                 </div>
-                <h3>Choose Opponent</h3>
-                <button type="button" class="btn btn-primary">Player</button>
-                <button type="button" class="btn btn-secondary">Computer</button>
-                <h3>Choose Computer Difficulty</h3>
-                <button type="button" class="btn btn-success">Easy</button>
-                <button type="button" class="btn btn-warning">Medium</button>
-                <button type="button" class="btn btn-danger">Hard</button>
+
+                <h3 class="my-4">Choose Opponent</h3>
+                <div class="mb-5">
+                    <button type="button" class="btn btn-primary">Player</button>
+                    <button type="button" class="btn btn-secondary">Computer</button>
+                </div>
+
+                <h3 class="my-4">Choose Computer Difficulty</h3>
+                <div class="mb-5">
+                    <button type="button" class="btn btn-success">Easy</button>
+                    <button type="button" class="btn btn-warning">Medium</button>
+                    <button type="button" class="btn btn-danger">Hard</button>
+                </div>
             </div>
-            <div class="col">
-                <h2>Nim Game</h2>
-                <button type="button" class="btn btn-outline-primary">Start Game</button>
-                <button type="button" class="btn btn-outline-primary">Instructions/Help</button>
+            <div class="col mx-4">
+                <h2 class="text-center">Nim Game</h2>
+                <div class="d-flex align-items-center justify-content-center">
+                    <a class="btn btn-outline-primary m-3 p-3" href="game.html" role="button">Start Game</a>
+                    <a class="btn btn-outline-primary m-3 p-3" href="" role="button">Instructions</a>
+                </div>
             </div>
         </div>
     </div>
