@@ -37,11 +37,29 @@
                 <h2 class="text-center">Nim Game</h2>
                 <div class="d-flex align-items-center justify-content-center">
                     <a class="btn btn-outline-primary m-3 p-3" href="game.html" role="button">Start Game</a>
-                    <a class="btn btn-outline-primary m-3 p-3" href="" role="button">Instructions</a>
+                    <a type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#thisModal">Instructions/Help</a>
                 </div>
             </div>
+
         </div>
+        <div class="modal" id="thisModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+          
+                <div class="modal-header">
+                  <h4 class="modal-title">Inctructions and help</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>  
+      
+                <div class="modal-body">
+                  Thank you for your purchase, you have been charged.
+      
+              </div>
+            </div>
+          </div>
     </div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script>src="code.js"</script>
