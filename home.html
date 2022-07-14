@@ -9,15 +9,17 @@
     <script defer src=""></script>
 </head>
 <body>
-    <h1 id="greeting" class="d-flex align-items-center justify-content-center m-5">Welcome To Nim!</h1>
+    <h1 id="welcome" class="d-flex align-items-center justify-content-center m-5">Welcome To Nim!</h1>
 
     <div class="container d-flex align-items-center justify-content-center">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="col mx-5 ms-2">
+                
+                <!-- Player 1 Name -->
                 <h3 class="text-center my-4">Enter Name</h3>
                 <div class="input-group">
                     <input id="player1" class="form-control my-2 p-2" type="text" placeholder="Player 1">
-                    <button class="btn btn-outline-secondary my-2 p-2" type="button" onclick="playerName()">Submit</button>
+                    <button class="btn btn-outline-secondary my-2 p-2" type="button" onclick="player1Name()">Submit</button>
                 </div>
 
                 <h3 class="text-center my-4">Choose Opponent</h3>
@@ -26,12 +28,13 @@
                     <button class="btn btn-secondary m-2 p-3" type="button" data-bs-toggle="collapse" data-bs-target="#difficultySelection">Computer</button>
                 </div>
 
+                <!-- Player 2 Name -->
                 <!-- Collapable Div (PvP), visible after clicking the "Player" button -->
                 <div id="pvpSelection" class="collapse">
                     <h3 class="text-center my-4">Enter Name</h3>
                     <div class="input-group">
                         <input id="player2" class="form-control my-2 p-2" type="text" placeholder="Player 2">
-                        <button class="btn btn-outline-secondary my-2 p-2" type="button" onclick="">Submit</button>
+                        <button class="btn btn-outline-secondary my-2 p-2" type="button" onclick="player2Name()">Submit</button>
                 </div>
                 </div>
 
