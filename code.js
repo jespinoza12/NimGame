@@ -6,7 +6,7 @@ var playerChips = 0;
 // If totalChips = 13, game ends
 var totalChips = 1;
 
-// var cpu = false;
+var cpu = false;
 // var difficulty = 1
 // 1 = Easy, 2 = Medium, 3 = Hard
 
@@ -66,9 +66,10 @@ function checkName() {
     if (!checkP1Name) {
         alert("Please enter a name for Player 1.")
         start.href = "home.html";
-    } else if (!checkP2Name) {
-        alert("Please enter a name for Player 2.")
-        start.href = "home.html";
+    }else if(cpu = false)
+        if (!checkP2Name) {
+            alert("Please enter a name for Player 2.")
+            start.href = "home.html";
     }
 }
 
