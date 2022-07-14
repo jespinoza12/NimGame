@@ -56,6 +56,10 @@ function player2Name() {
     }
 }
 
+function CPUTurn(){
+    var cpu = true;
+}
+
 // Checks if Player 1 or Player 2's name is empty when "Start Game" button is clicked
 // If empty, redirect back to home
 function checkName() {
@@ -136,9 +140,9 @@ function endGame() {
 console.log(playerNum);
 
 if (playerNum == 1) {
-    document.getElementById("result").innerHTML = sessionStorage.getItem("p1Store") + " Wins!" + player1Name;
+    document.getElementById("result").innerHTML = sessionStorage.getItem("p1Store") + " Wins!";
 } else if (playerNum == 2) {
-    document.getElementById("result").innerHTML = sessionStorage.getItem("p2Store") + " Wins!" + player2Name;
+    document.getElementById("result").innerHTML = sessionStorage.getItem("p2Store") + " Wins!";
 }
 
 // If player plays again, the stored names will be reset to empty.
