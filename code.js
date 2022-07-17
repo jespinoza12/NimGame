@@ -7,8 +7,20 @@ var playerChips = 0;
 var totalChips = 1;
 
 var cpu = false;
-// var difficulty = 1
-// 1 = Easy, 2 = Medium, 3 = Hard
+var difficulty = 1
+1 = Easy, 2 = Medium, 3 = Hard
+
+function easy(){
+    difficulty = 1;
+}
+
+function medium(){
+    difficulty = 2;
+}
+
+function hard(){
+    difficulty = 3;
+}
 
 // Checks if Player 1 name is empty when name is submitted
 function player1Name() {
@@ -58,6 +70,16 @@ function player2Name() {
 
 function CPUTurn(){
     var cpu = true;
+    player2Name("Computer");
+    if(difficulty == 1){
+        return Math.floor(Math.random() * 1) + 1;
+    }
+    else if(difficulty == 2){
+        return Math.floor(Math.random() * 2) + 1;
+    }
+    else if(difficulty == 3){
+        return Math.floor(Math.random() * 3) + 1;
+    }
 }
 
 // Checks if Player 1 or Player 2's name is empty when "Start Game" button is clicked
