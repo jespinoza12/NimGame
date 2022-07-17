@@ -70,16 +70,6 @@ function player2Name() {
 
 function CPUTurn(){
     var cpu = true;
-    player2Name("Computer");
-    if(difficulty == 1){
-        return Math.floor(Math.random() * 1) + 1;
-    }
-    else if(difficulty == 2){
-        return Math.floor(Math.random() * 2) + 1;
-    }
-    else if(difficulty == 3){
-        return Math.floor(Math.random() * 3) + 1;
-    }
 }
 
 // Checks if Player 1 or Player 2's name is empty when "Start Game" button is clicked
@@ -132,13 +122,13 @@ function endTurn() {
         // Reset chip counter
         document.getElementById("counter").value = 0;
 
-    // } else if (cpu == true && playerNum == 1) {
-    //     playerChips = 0;
-    //     document.getElementById('player').innerHTML = "Cpu's Turn"
-    //     sessionStorage.setItem("winner", playerNum);
-    //     playerNum++
-    //     alert("It is now the Cpu's turn")
-    //     document.getElementById('counter').value = 0;
+    } else if (cpu == true && playerNum == 1) {
+        playerChips = 0;
+        document.getElementById('player').innerHTML = "Cpu's Turn"
+        sessionStorage.setItem("winner", playerNum);
+        playerNum++
+        alert("It is now the Cpu's turn")
+        document.getElementById('counter').value = 0;
 
     } else if (playerNum == 2) {
         playerChips = 0;
@@ -173,18 +163,15 @@ function returnMenu() {
     sessionStorage.setItem("p2Store", "");
 }
 
-// function setCpu(){
-//     cpu = true;
-// }
 
-// function cpuMove(){
-//     if (difficulty == 1) {
-//         //Removes one of the visible chips
-
-//     } else if (difficulty == 2) {
-//         //Removes random 1 or 2 chips from visible chips
-
-//     } else if (difficulty == 3) {
-//         //Removes random 1 to 3 from visible chips
-//     }
-// }
+function cpuMove(){
+    if(difficulty == 1){
+        return Math.floor(Math.random() * 1) + 1;
+    }
+    else if(difficulty == 2){
+        return Math.floor(Math.random() * 2) + 1;
+    }
+    else if(difficulty == 3){
+        return Math.floor(Math.random() * 3) + 1;
+    }
+}
