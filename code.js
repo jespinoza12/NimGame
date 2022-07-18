@@ -53,6 +53,7 @@ function pvpSelected() {
 
 function cpuSelected() {
     if (player1.value) {
+        sessionStorage.setItem("p1Store", player1.value)
         sessionStorage.setItem("p2Store", "CPU");
     
         // Displays welcome message to Player 1 & CPU
