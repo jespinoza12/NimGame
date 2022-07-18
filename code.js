@@ -104,6 +104,57 @@ function chipCount(id) {
     }
 }
 
+function cpuMove(){
+    console.log("FUCK ME")
+    if(difficulty == 1){
+        var selectable = Math.floor(Math.random() * 1) + 1;
+        for(var i = 1; i < 13; i++){
+            if(document.getElementById(i).style.visibility == "hidden"){
+
+            }else{
+                if(selectable != 0){
+                    chipCount(i)
+                    selectable--
+                }else{
+                    endTurn()
+                }
+            }
+        }
+        
+    }
+    else if(difficulty == 2){
+        var selectable = Math.floor(Math.random() * 2) + 1;
+        for(var i = 1; i < 13; i++){
+            var stringthing = i.toString()
+            if(document.getElementById(stringthing).style.visibility != "hidden"){
+                if(selectable != 0){
+                    chipCount(stringthing)
+                    selectable--
+                }else{
+                    endTurn()
+                }
+            }else{
+                
+            }
+        }
+    }
+    else if(difficulty == 3){
+        var selectable = Math.floor(Math.random() * 3) + 1;
+        for(var i = 1; i < 13; i++){
+            if(document.getElementById(i).style.visibility == "hidden"){
+
+            }else{
+                if(selectable != 0){
+                    chipCount(i)
+                    selectable--
+                }else{
+                    endTurn()
+                }
+            }
+        }
+    }
+}
+
 function endTurn() {
     // Checks if no chips were clicked this turn
     if (playerChips == 0) {
@@ -137,7 +188,6 @@ function endTurn() {
             playerNum++
             document.getElementById('player').innerHTML = "Cpu's Turn"
             sessionStorage.setItem("winner", playerNum);
-            playerNum++
             alert("It is now the Cpu's turn")
             document.getElementById('counter').value = 0;
             cpuMove();
@@ -152,6 +202,7 @@ function endTurn() {
     
             // Reset chip counter
             document.getElementById("counter").value = 0;
+        }
     }
 }
 
@@ -174,55 +225,4 @@ function endGame() {
 function returnMenu() {
     sessionStorage.setItem("p1Store", "");
     sessionStorage.setItem("p2Store", "");
-}
-
-
-function cpuMove(){
-    if(difficulty == 1){
-        var selectable = Math.floor(Math.random() * 1) + 1;
-        for(var i = 1; i < 13; i++){
-            if(document.getElementById(i).style.visibility == "hidden"){
-
-            }else{
-                if(selectable != 0){
-                    chipCount(i)
-                    selectable--
-                }else{
-                    endTurn()
-                }
-            }
-        }
-        
-    }
-    else if(difficulty == 2){
-        var selectable = Math.floor(Math.random() * 2) + 1;
-        for(var i = 1; i < 13; i++){
-            if(document.getElementById(i).style.visibility == "hidden"){
-
-            }else{
-                if(selectable != 0){
-                    chipCount(i)
-                    selectable--
-                }else{
-                    endTurn()
-                }
-            }
-        }
-    }
-    else if(difficulty == 3){
-        var selectable = Math.floor(Math.random() * 3) + 1;
-        for(var i = 1; i < 13; i++){
-            if(document.getElementById(i).style.visibility == "hidden"){
-
-            }else{
-                if(selectable != 0){
-                    chipCount(i)
-                    selectable--
-                }else{
-                    endTurn()
-                }
-            }
-        }
-    }
-}
 }
