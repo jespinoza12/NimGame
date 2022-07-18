@@ -15,7 +15,17 @@ var player2 = document.getElementById("player2");
 var cpu = false;
 
 var difficulty = 1
-// 1 = Easy, 2 = Medium, 3 = Hard
+function easy(){
+    difficulty = 1;
+}
+
+function medium(){
+    difficulty = 2;
+}
+
+function hard(){
+    difficulty = 3;
+}
 
 // Input validation for Player 1 & Player 2 names
 function checkName() {
@@ -53,6 +63,7 @@ function pvpSelected() {
 }
 
 function cpuSelected() {
+    cpu = true;
     if (player1.value) {
         sessionStorage.setItem("p1Store", player1.value)
         sessionStorage.setItem("p2Store", "CPU");
@@ -98,7 +109,7 @@ function endTurn() {
     if (playerChips == 0) {
         alert("You must select at least one chip.");
     } else {
-        if (playerNum == 1) {
+        if (cpu != true && playerNum == 1) {
             playerChips = 0;
             playerNum++
             sessionStorage.setItem("winCheck", playerNum);
@@ -110,7 +121,7 @@ function endTurn() {
             // Reset chip counter
             document.getElementById("counter").value = 0;
     
-        } else if (playerNum == 2) {
+        } else if (cpu != true &&  playerNum == 2) {
             playerChips = 0;
             playerNum--
             sessionStorage.setItem("winCheck", playerNum);
@@ -121,15 +132,26 @@ function endTurn() {
     
             // Reset chip counter
             document.getElementById("counter").value = 0;
-        }
-        else if (cpu == true && playerNum == 1) {
+        } else if (cpu == true && playerNum == 1) {
             playerChips = 0;
+            playerNum++
             document.getElementById('player').innerHTML = "Cpu's Turn"
             sessionStorage.setItem("winner", playerNum);
             playerNum++
             alert("It is now the Cpu's turn")
             document.getElementById('counter').value = 0;
             cpuMove();
+        } else if (cpu == true && playerNum == 2) {
+            playerChips = 0;
+            playerNum--
+            sessionStorage.setItem("winCheck", playerNum);
+    
+            // Switch to Player 1's turn
+            alert("It is now " + sessionStorage.getItem("p1Store") + "'s turn");
+            document.getElementById("player").innerHTML = sessionStorage.getItem("p1Store") + "'s Turn";
+    
+            // Reset chip counter
+            document.getElementById("counter").value = 0;
     }
 }
 
@@ -154,9 +176,6 @@ function returnMenu() {
     sessionStorage.setItem("p2Store", "");
 }
 
-function CPUTurn(){
-    cpu = true;
-}
 
 function cpuMove(){
     if(difficulty == 1){
@@ -205,4 +224,5 @@ function cpuMove(){
             }
         }
     }
+}
 }
