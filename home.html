@@ -9,39 +9,59 @@
     <script defer src=""></script>
 </head>
 <body>
-    <h1 class="row d-flex align-items-center justify-content-center m-5">Welcome To Nim</h1>
+    <h1 id="welcome" class="d-flex align-items-center justify-content-center m-5">Welcome To Nim!</h1>
+
+    <div class="container">
+        <div class=" d-flex flex-row align-items-center justify-content-center m-5">
+            <div class="row-2 mx-5 mx-5">
+                <!-- Player 1 Name -->
+                <h3 class="text-center my-4">Enter Name</h3>
+                <div class="">
+                    <input id="player1" class="form-control my-2 p-2" type="text" placeholder="Player 1">
+                </div>
+
+                <h3 class="text-center my-4">Choose Opponent</h3>
+                <!-- Divs collapse and expand depending on which button is clicked -->
+                <div id="btnGroup">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <button id="pvpBtn" class="btn btn-primary m-2 p-3" type="button" data-bs-toggle="collapse" data-bs-target="#pvpSelection"onclick="pvpSelected()">Player</button>
+                        <button id="cpuBtn" class="btn btn-secondary m-2 p-3" type="button" data-bs-toggle="collapse" data-bs-target="#difficultySelection" onclick="cpuSelected()">Computer</button>
+                    </div>
+
+                    <div class="accordion">
+                        <!-- Player 2 Name -->
+                        <!-- Collapable div (PvP), visible after clicking the "Player" button -->
+                        <div id="pvpSelection" class="collapse" data-bs-parent="#btnGroup">
+                            <h3 class="text-center my-4">Enter Opponent Name</h3>
+                            <div class="d-flex flex-column align-items-center justify-content-center">
+                                <input id="player2" class="form-control my-2 p-2" type="text" placeholder="Player 2">
+                                <button class="btn btn-primary my-3 px-5 py-2" type="submit" onclick="checkName()" data-bs-toggle="collapse" data-bs-target="#start">Submit</button>
+                            </div>
+                        </div>
     
-    <div class="container d-flex align-items-center justify-content-center">
-        <div class="row d-flex align-items-center justify-content-center">
-            <div class="col mx-4">
-                <h3 class="my-4">Enter Name</h3>
-                <div class="input-group mb-5">
-                    <input type="text" class="form-control" placeholder="Enter Name" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
-                </div>
-
-                <h3 class="my-4">Choose Opponent</h3>
-                <div class="mb-5">
-                    <button type="button" class="btn btn-primary">Player</button>
-                    <button type="button" class="btn btn-secondary">Computer</button>
-                </div>
-
-                <h3 class="my-4">Choose Computer Difficulty</h3>
-                <div class="mb-5">
-                    <button type="button" class="btn btn-success">Easy</button>
-                    <button type="button" class="btn btn-warning">Medium</button>
-                    <button type="button" class="btn btn-danger">Hard</button>
+                        <!-- Collapable div (Difficulty), visible after clicking the "Computer" button -->
+                        <div id="difficultySelection" class="collapse" data-bs-parent="#btnGroup">
+                            <h3 class="text-center my-4">Choose Computer Difficulty</h3>
+                            <div class="d-flex align-items-center justify-content-center mb-4">
+                                <button class="btn btn-success m-2 p-3" type="button" onclick="chooseDifficulty()" data-bs-toggle="collapse" data-bs-target="#start">Easy</button>
+                                <button class="btn btn-warning m-2 p-3" type="button" onclick="chooseDifficulty()" data-bs-toggle="collapse" data-bs-target="#start">Medium</button>
+                                <button class="btn btn-danger m-2 p-3" type="button" onclick="chooseDifficulty()" data-bs-toggle="collapse" data-bs-target="#start">Hard</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col mx-4">
-                <h2 class="text-center">Nim Game</h2>
+
+            <!-- Collapable div (Start), visible after selecting an opponent -->
+            <div id="start" class="collapse row-2 mx-5 mx-5">
+                <h2 class="text-center my-5">Nim Game</h2>
                 <div class="d-flex align-items-center justify-content-center">
-                    <a class="btn btn-outline-primary m-3 p-3" href="game.html" role="button">Start Game</a>
-                    <a type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#thisModal">Instructions/Help</a>
+                    <a class="btn btn-outline-primary m-2 p-3" href="game.html" role="button">Start Game</a>
+                    <a type="button" class="btn btn-outline-secondary m-2 p-3" data-bs-toggle="modal" data-bs-target="#thisModal">Instructions/Help</a>
                 </div>
             </div>
-
         </div>
+
         <div class="modal" id="thisModal">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -56,12 +76,9 @@
                     Once a player has chosen their desired chips they can end their turn to give the other player control. This continues between both players until one has to take the last chip. Whoever takes the final chip is declared the winner.
               </div>
             </div>
-          </div>
-    </div>
+        </div>
 
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script>src="code.js"</script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="code.js"></script>
 </body>
 </html>
