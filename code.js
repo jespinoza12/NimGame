@@ -129,6 +129,7 @@ function endTurn() {
         playerNum++
         alert("It is now the Cpu's turn")
         document.getElementById('counter').value = 0;
+        cpuMove();
 
     } else if (playerNum == 2) {
         playerChips = 0;
@@ -166,12 +167,49 @@ function returnMenu() {
 
 function cpuMove(){
     if(difficulty == 1){
-        return Math.floor(Math.random() * 1) + 1;
+        var selectable = Math.floor(Math.random() * 1) + 1;
+        for(var i = 1; i < 13; i++){
+            if(document.getElementById(i).style.visibility == "hidden"){
+
+            }else{
+                if(selectable != 0){
+                    chipCount(i)
+                    selectable--
+                }else{
+                    endTurn()
+                }
+            }
+        }
+        
     }
     else if(difficulty == 2){
-        return Math.floor(Math.random() * 2) + 1;
+        var selectable = Math.floor(Math.random() * 2) + 1;
+        for(var i = 1; i < 13; i++){
+            if(document.getElementById(i).style.visibility == "hidden"){
+
+            }else{
+                if(selectable != 0){
+                    chipCount(i)
+                    selectable--
+                }else{
+                    endTurn()
+                }
+            }
+        }
     }
     else if(difficulty == 3){
-        return Math.floor(Math.random() * 3) + 1;
+        var selectable = Math.floor(Math.random() * 3) + 1;
+        for(var i = 1; i < 13; i++){
+            if(document.getElementById(i).style.visibility == "hidden"){
+
+            }else{
+                if(selectable != 0){
+                    chipCount(i)
+                    selectable--
+                }else{
+                    endTurn()
+                }
+            }
+        }
     }
 }
