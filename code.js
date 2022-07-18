@@ -104,7 +104,7 @@ function chipCount(id) {
     }
 }
 
-function cpuMove(){
+function cpuMove() {
     console.log("FUCK ME")
     if(difficulty == 1){
         var selectable = Math.floor(Math.random() * 1) + 1;
@@ -190,7 +190,7 @@ function endTurn() {
             sessionStorage.setItem("winner", playerNum);
             alert("It is now the Cpu's turn")
             document.getElementById('counter').value = 0;
-            cpuMove();
+            cpuMove()
         } else if (cpu == true && playerNum == 2) {
             playerChips = 0;
             playerNum--
