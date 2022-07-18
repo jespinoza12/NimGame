@@ -12,8 +12,9 @@ var welcome = document.getElementById("welcome");
 var start = document.getElementById("start");
 var player1 = document.getElementById("player1");
 var player2 = document.getElementById("player2");
+var cpu = false;
 
-// var difficulty = 1
+var difficulty = 1
 // 1 = Easy, 2 = Medium, 3 = Hard
 
 // Input validation for Player 1 & Player 2 names
@@ -121,6 +122,14 @@ function endTurn() {
             // Reset chip counter
             document.getElementById("counter").value = 0;
         }
+        else if (cpu == true && playerNum == 1) {
+            playerChips = 0;
+            document.getElementById('player').innerHTML = "Cpu's Turn"
+            sessionStorage.setItem("winner", playerNum);
+            playerNum++
+            alert("It is now the Cpu's turn")
+            document.getElementById('counter').value = 0;
+            cpuMove();
     }
 }
 
@@ -145,18 +154,55 @@ function returnMenu() {
     sessionStorage.setItem("p2Store", "");
 }
 
-// function setCpu(){
-//     cpu = true;
-// }
+function CPUTurn(){
+    cpu = true;
+}
 
-// function cpuMove() {
-//     if (difficulty == 1) {
-//         //Removes one of the visible chips
+function cpuMove(){
+    if(difficulty == 1){
+        var selectable = Math.floor(Math.random() * 1) + 1;
+        for(var i = 1; i < 13; i++){
+            if(document.getElementById(i).style.visibility == "hidden"){
 
-//     } else if (difficulty == 2) {
-//         //Removes random 1 or 2 chips from visible chips
+            }else{
+                if(selectable != 0){
+                    chipCount(i)
+                    selectable--
+                }else{
+                    endTurn()
+                }
+            }
+        }
+        
+    }
+    else if(difficulty == 2){
+        var selectable = Math.floor(Math.random() * 2) + 1;
+        for(var i = 1; i < 13; i++){
+            if(document.getElementById(i).style.visibility == "hidden"){
 
-//     } else if (difficulty == 3) {
-//         //Removes random 1 to 3 from visible chips
-//     }
-// }
+            }else{
+                if(selectable != 0){
+                    chipCount(i)
+                    selectable--
+                }else{
+                    endTurn()
+                }
+            }
+        }
+    }
+    else if(difficulty == 3){
+        var selectable = Math.floor(Math.random() * 3) + 1;
+        for(var i = 1; i < 13; i++){
+            if(document.getElementById(i).style.visibility == "hidden"){
+
+            }else{
+                if(selectable != 0){
+                    chipCount(i)
+                    selectable--
+                }else{
+                    endTurn()
+                }
+            }
+        }
+    }
+}
