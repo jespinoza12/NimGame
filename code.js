@@ -12,9 +12,20 @@ var welcome = document.getElementById("welcome");
 var start = document.getElementById("start");
 var player1 = document.getElementById("player1");
 var player2 = document.getElementById("player2");
+var cpu = false;
 
-// var difficulty = 1
-// 1 = Easy, 2 = Medium, 3 = Hard
+var difficulty = 1
+function easy(){
+    difficulty = 1;
+}
+
+function medium(){
+    difficulty = 2;
+}
+
+function hard(){
+    difficulty = 3;
+}
 
 // Input validation for Player 1 & Player 2 names
 function checkName() {
@@ -52,6 +63,7 @@ function pvpSelected() {
 }
 
 function cpuSelected() {
+    cpu = true;
     if (player1.value) {
         sessionStorage.setItem("p1Store", player1.value)
         sessionStorage.setItem("p2Store", "CPU");
@@ -92,12 +104,63 @@ function chipCount(id) {
     }
 }
 
+function cpuMove() {
+    console.log("FUCK ME")
+    if(difficulty == 1){
+        var selectable = Math.floor(Math.random() * 1) + 1;
+        for(var i = 1; i < 13; i++){
+            if(document.getElementById(i).style.visibility == "hidden"){
+
+            }else{
+                if(selectable != 0){
+                    chipCount(i)
+                    selectable--
+                }else{
+                    endTurn()
+                }
+            }
+        }
+        
+    }
+    else if(difficulty == 2){
+        var selectable = Math.floor(Math.random() * 2) + 1;
+        for(var i = 1; i < 13; i++){
+            var stringthing = i.toString()
+            if(document.getElementById(stringthing).style.visibility != "hidden"){
+                if(selectable != 0){
+                    chipCount(stringthing)
+                    selectable--
+                }else{
+                    endTurn()
+                }
+            }else{
+                
+            }
+        }
+    }
+    else if(difficulty == 3){
+        var selectable = Math.floor(Math.random() * 3) + 1;
+        for(var i = 1; i < 13; i++){
+            if(document.getElementById(i).style.visibility == "hidden"){
+
+            }else{
+                if(selectable != 0){
+                    chipCount(i)
+                    selectable--
+                }else{
+                    endTurn()
+                }
+            }
+        }
+    }
+}
+
 function endTurn() {
     // Checks if no chips were clicked this turn
     if (playerChips == 0) {
         alert("You must select at least one chip.");
     } else {
-        if (playerNum == 1) {
+        if (cpu != true && playerNum == 1) {
             playerChips = 0;
             playerNum++
             sessionStorage.setItem("winCheck", playerNum);
@@ -109,7 +172,26 @@ function endTurn() {
             // Reset chip counter
             document.getElementById("counter").value = 0;
     
-        } else if (playerNum == 2) {
+        } else if (cpu != true &&  playerNum == 2) {
+            playerChips = 0;
+            playerNum--
+            sessionStorage.setItem("winCheck", playerNum);
+    
+            // Switch to Player 1's turn
+            alert("It is now " + sessionStorage.getItem("p1Store") + "'s turn");
+            document.getElementById("player").innerHTML = sessionStorage.getItem("p1Store") + "'s Turn";
+    
+            // Reset chip counter
+            document.getElementById("counter").value = 0;
+        } else if (cpu == true && playerNum == 1) {
+            playerChips = 0;
+            playerNum++
+            document.getElementById('player').innerHTML = "Cpu's Turn"
+            sessionStorage.setItem("winner", playerNum);
+            alert("It is now the Cpu's turn")
+            document.getElementById('counter').value = 0;
+            cpuMove()
+        } else if (cpu == true && playerNum == 2) {
             playerChips = 0;
             playerNum--
             sessionStorage.setItem("winCheck", playerNum);
@@ -144,19 +226,3 @@ function returnMenu() {
     sessionStorage.setItem("p1Store", "");
     sessionStorage.setItem("p2Store", "");
 }
-
-// function setCpu(){
-//     cpu = true;
-// }
-
-// function cpuMove() {
-//     if (difficulty == 1) {
-//         //Removes one of the visible chips
-
-//     } else if (difficulty == 2) {
-//         //Removes random 1 or 2 chips from visible chips
-
-//     } else if (difficulty == 3) {
-//         //Removes random 1 to 3 from visible chips
-//     }
-// }
